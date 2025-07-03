@@ -1,0 +1,35 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "compile:sass": "sass resources/scss/main.scss resources/css/styles.css"
+    },
+    "devDependencies": {
+        "@tailwindcss/forms": "^0.5.2",
+        "@tailwindcss/postcss": "^4.1.8",
+        "@tailwindcss/vite": "^4.0.0",
+        "alpinejs": "^3.4.2",
+        "autoprefixer": "^10.4.2",
+        "axios": "^1.7.4",
+        "concurrently": "^9.0.1",
+        "javascript-obfuscator": "^4.1.1",
+        "laravel-vite-plugin": "^1.2.0",
+        "postcss": "^8.4.31",
+        "sass": "^1.89.2",
+        "sass-embedded": "^1.89.2",
+        "tailwindcss": "^4.1.0",
+        "terser": "^5.43.1",
+        "vite": "^6.0.11",
+        "vite-plugin-javascript-obfuscator": "^3.1.0",
+        "vite-plugin-obfuscator": "^1.0.5",
+        "vite-plugin-static-copy": "^2.3.0"
+    },
+    "dependencies": {
+        "-": "^0.0.1",
+        "bootstrap": "^5.3.5",
+        "save-dev": "^0.0.1-security",
+        "sortablejs": "^1.15.6"
+    }
+}
