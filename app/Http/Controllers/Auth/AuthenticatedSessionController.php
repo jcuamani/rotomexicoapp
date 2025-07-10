@@ -19,10 +19,11 @@ class AuthenticatedSessionController extends Controller
     {
         return view('auth.login');
     }
-    public function dashboard(): View
+    public function dashboard()//: View
     {
         if(Auth::check()){
-            return view('dashboard');
+            //return view('dashboard');
+            return redirect()->route('dashboard.dashboard');
         }
         return redirect("login")->withError(trans('application_lang.application_login_required'));
     }

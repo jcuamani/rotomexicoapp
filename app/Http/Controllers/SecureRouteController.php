@@ -23,9 +23,11 @@ class SecureRouteController extends Controller
             $payload = Crypt::decrypt(urldecode($data));
 
             // Validar que el payload contenga los datos necesarios
+            /*
             if (isset($payload['expires_at']) && now()->timestamp > $payload['expires_at']) {
                 abort(403, 'Enlace expirado');
             }
+                */
             
             $route = $payload['route'];
             $params = $payload['params'] ?? [];
@@ -101,8 +103,8 @@ class SecureRouteController extends Controller
          } catch (\Exception $e) {
             
             return $rutaError
-                ? redirect()->route($rutaError)->withErrors($e->getMessage())
-                : redirect()->back()->withErrors($e->getMessage() . ' (sin ruta de error definida)');
+                ? redirect()->route($rutaError)->withErrors($e->getMessage())->withInput()
+                : redirect()->back()->withErrors($e->getMessage() . '')->withInput();
             
             //abort(403, 'Ruta inválida o vencida');
             //return redirect()->back()->withErrors($e->getMessage());

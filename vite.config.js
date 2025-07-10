@@ -49,13 +49,16 @@ export default defineConfig({
                 'resources/js/theme-colorpicker.js',
                 'resources/js/theme-script.js',
                 'resources/js/validation.js',                
-                */
+
                'resources/js/admin/menu.js',
                'resources/js/admin/menuSortable.js',
                'resources/js/admin/permission.js',
                'resources/js/admin/rol.js',
-               'resources/js/admin/User.js'
-
+               'resources/js/admin/User.js',
+               
+               'resources/js/customer/cat/ShopAccountType.js',
+               'resources/js/customer/customer/Customer.js'
+                */
 
             ],
             refresh: true,
@@ -86,24 +89,22 @@ export default defineConfig({
                 { src: 'resources/img', dest: '' },
                 { 
                     src: [
-                        'resources/js/*',
+                        'resources/js/**/*',
                         '!resources/js/app.js',
                         '!resources/js/appendscript.js',
                         '!resources/js/calculator.js',
                         '!resources/js/custom-select2.js',
-                        '!resources/js/forms-pickers.js',
-                        '!resources/js/ratings.js',
+                        //'!resources/js/forms-pickers.js',
+                        //'!resources/js/ratings.js',
                         '!resources/js/script.js',
-                        '!resources/js/sortable.js',
-                        '!resources/js/swiper.js',
+                        //'!resources/js/sortable.js',
+                        //'!resources/js/swiper.js',
                         '!resources/js/theme-colorpicker.js',
-                        '!resources/js/theme-script.js',
+                        //'!resources/js/theme-script.js',
                         '!resources/js/validation.js',
-                        '!resources/js/admin/menu.js',
-                        '!resources/js/admin/menuSortable.js',
-                        '!resources/js/admin/permission.js',
-                        '!resources/js/admin/rol.js',
-                        '!resources/js/admin/User.js'
+                        '!resources/js/admin/**',
+                        '!resources/js/customer/**'
+
 
                     ],
                     dest: 'js'

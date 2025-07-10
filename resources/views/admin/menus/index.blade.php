@@ -34,7 +34,7 @@
             </ul>
             <div class="page-btn">
                 @can('menu.create')
-                    <a href="" data-init-reg="{{ encrypt_param(0) }}" class="btn btn-primary ButonAdd">
+                    <a href="" data-init-reg="{{ encrypt_param(0) }}" class="btn btn-primary ButonAdd_Menu">
                         <i class="ti ti-circle-plus me-1"></i>
                         {{__("application_lang.app_menus_lbl_menus_admin_add")}}
                     </a>
@@ -104,7 +104,7 @@
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table class="table datatable">
+                    <table class="table datatable" id="dt_Menu">
                         <thead class="thead-light">
                             <tr>                                
                                 <th>{{__("application_lang.app_menus_lbl_tb_col_name")}} </th>

@@ -196,4 +196,7 @@
 
  
 
- @vite(['resources/scss/main.scss', 'resources/js/script.js'])
+@env('local')
+ @vite(['resources/scss/main.scss'])
+@endenv
+<link rel="stylesheet" href="{{ url('build/css/main.min.css')}}">

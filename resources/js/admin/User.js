@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
     
-    var table = $('.datatable').DataTable({            
+    var table = $('#dt_User').DataTable({            
         processing: true,
         "bFilter": true,
         "sDom": 'frBtlip',  

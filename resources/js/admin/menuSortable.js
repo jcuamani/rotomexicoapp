@@ -11,22 +11,26 @@ function initNestedSortable(el) {
         el.querySelectorAll('ul').forEach(ul => initNestedSortable(ul));
     }
 
-    initNestedSortable(document.getElementById('menu-list'));
+    if ($('#menu-list').length) {
+        
+        initNestedSortable(document.getElementById('menu-list'));
+    }
+    
+    if ($('#saveOrder').length) {
+        document.getElementById('saveOrder').addEventListener('click', function () {
+            const data = serialize(document.querySelector('#menu-list'));
 
-    document.getElementById('saveOrder').addEventListener('click', function () {
-        const data = serialize(document.querySelector('#menu-list'));
-
-        fetch(window.appRoutes.Admin_Menus_Reorder, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': window.appRoutes.csrfToken
-            },
-            body: JSON.stringify({ tree: data })
-        }).then(res => res.json())
-          .then(data => alert(data.message));
-    });
-
+            fetch(window.appRoutes.Admin_Menus_Reorder, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': window.appRoutes.csrfToken
+                },
+                body: JSON.stringify({ tree: data })
+            }).then(res => res.json())
+            .then(data => alert(data.message));
+        });
+    }
     function serialize(list, parentId = null) {
         const items = [];
         list.querySelectorAll(':scope > li').forEach((li, index) => {
