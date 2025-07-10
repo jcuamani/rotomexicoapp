@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -39,7 +40,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('dashboard', [AuthenticatedSessionController::class, 'dashboard'])
         ->name('dashboard');
-        Route::get('dashboard/dashboard', [AuthenticatedSessionController::class, 'dashboard'])
+        Route::get('dashboard/dashboard', [DashboardController::class, 'dashboard'])
         ->name('dashboard.dashboard');
 
     Route::get('verify-email', EmailVerificationPromptController::class)

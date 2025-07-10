@@ -298,32 +298,14 @@
 @endif
 
  <!-- COKE -->
-@if(Route::is(['admin.menus.index']))
-
-<script src="{{ URL::asset('build/js/menu.js') }}"></script>
-
-@endif
 @if(Route::is(['admin.menus.showreorder']))
 
 <script src="{{ URL::asset('build/plugins/sortablejs/Sortable.min.js') }}"></script>
-<script src="{{ URL::asset('build/js/menuSortable.js') }}"></script>
 
 @endif
-@if(Route::is(['admin.permission.index']))
 
-<script src="{{ URL::asset('build/js/permission.js') }}"></script>
+<script src="{{ URL::asset('build/js/app.js') }}"></script>
 
-@endif
-@if(Route::is(['admin.rol.index']) || Route::is(['admin.rol.addEdit']))
-
-<script src="{{ URL::asset('build/js/rol.js') }}"></script>
-
-@endif
-@if(Route::is(['admin.users.index']))
-
-<script src="{{ URL::asset('build/js/User.js') }}"></script>
-
-@endif
 @if(Route::is(['admin.users.addEdit']) || Route::is(['profile.edit']))
 
 <!--Internal Fileuploads js-->
@@ -337,6 +319,11 @@
 <script src="{{ URL::asset('build/js/fancyuploder/fancy-uploader.js')}}"></script>
 
 @endif
+@if (Route::is(['dashboard.dashboard']))
+    <!-- Chart JS -->
+    <script src="{{ URL::asset('build/plugins/apexchart/apexcharts.min.js') }}"></script>
+    <script src="{{ URL::asset('build/plugins/apexchart/chart-data.js') }}"></script>
+@endif
 
 <script>
     window.appRoutes = {
@@ -348,6 +335,8 @@
         Admin_Rol_Index: "{{ route('admin.rol.index') }}",
         Admin_Rol_Modal_Add: "{{ route('admin.rol.modal.add',':reg') }}",
         Admin_Users_Index: "{{ route('admin.users.index') }}",
+        Customer_Cat_Shopaccounttype_Index: "{{ route('customer.cat.shopaccounttype.index') }}",
+        Customer_Customer_Customer_Index: "{{ route('customer.customer.customer.index') }}",
 
         csrfToken: "{{ csrf_token() }}"
         
@@ -356,6 +345,8 @@
     window.appTranslates = {
         Estatus_Activo : "{{__('application_lang.app_menus_lbl_tb_col_enabled')}}",
         Estatus_Inactivo : "{{__('application_lang.app_menus_lbl_tb_col_disabled')}}",
+        Aprobado : "{{__('application_lang.app_menus_lbl_tb_col_approved')}}",
+        NoAprobado : "{{__('application_lang.app_menus_lbl_tb_col_no_approved')}}",
         Search: "{{__('application_lang.app_lbl_search')}}",
         Mostrar: "{{__('application_lang.app_lbl_Show')}}",
         Mostrando: "{{__('application_lang.app_lbl_Showing')}}",

@@ -34,7 +34,7 @@
             <div class="page-btn">
                 @can('permission.create')
                     
-                    <a href="#" data-init-reg="{{ encrypt_param(0) }}" class="btn btn-primary ButonAdd">
+                    <a href="#" data-init-reg="{{ encrypt_param(0) }}" class="btn btn-primary ButonAdd_Permission">
                         <i class="ti ti-circle-plus me-1"></i>
                         {{__("application_lang.app_menus_lbl_menus_permission_add")}}
                     </a>
@@ -92,7 +92,7 @@
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table class="table datatable">
+                    <table class="table datatable" id="dt_Permission">
                         <thead class="thead-light">
                             <tr>                                
                                 <th>{{__("application_lang.app_menus_lbl_tb_col_name")}} </th>

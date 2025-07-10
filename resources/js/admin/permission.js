@@ -1,7 +1,7 @@
 $(document).ready(function()
 {
     
-    var table = $('.datatable').DataTable({            
+    var table = $('#dt_Permission').DataTable({            
         processing: true,
         "bFilter": true,
         "sDom": 'frBtlip',  
@@ -83,20 +83,20 @@ $(document).ready(function()
         $('#DataTableLoading').hide();
         $('#DataTableRefresh').show();
     });
-    $(document).on("click",".ButonAdd",function(evento){        
+    $(document).on("click",".ButonAdd_Permission",function(evento){        
         event.preventDefault(); // Evitar el envío del formulario
         var valor = $(this).attr('data-init-reg');
-        NewEditWindow(valor);
+        NewEditWindow_Permission(valor);
     });
     
-    $(document).on("click",".ButonEdit",function(evento){
+    $(document).on("click",".ButonEdit_Permission",function(evento){
         event.preventDefault(); // Evitar el envío del formulario
         var valor = $(this).attr('data-init-reg');
-        NewEditWindow(valor);
+        NewEditWindow_Permission(valor);
     });
             
 });       
-function NewEditWindow(reg) {
+function NewEditWindow_Permission(reg) {
     $('#form_add_modal').remove();
     var url = window.appRoutes.Admin_Permission_Modal_Add;
     url = url.replace(':reg', reg);

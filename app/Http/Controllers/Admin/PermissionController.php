@@ -35,7 +35,7 @@ class PermissionController extends Controller
                                 }
                                 if(request()->user()->can('permission.edit'))
                                 {
-                                    $frm .= '<a title="'.trans('application_lang.app_menus_lbl_btn_actions_edit').'" class="me-2 p-2 ButonEdit"  data-init-reg="'.encrypt_param($row['id']).'" href="#" >';
+                                    $frm .= '<a title="'.trans('application_lang.app_menus_lbl_btn_actions_edit').'" class="me-2 p-2 ButonEdit_Permission"  data-init-reg="'.encrypt_param($row['id']).'" href="#" >';
                                         $frm .= '<i data-feather="edit" class="feather-edit"></i>';
                                     $frm .= '</a>';
                                 }

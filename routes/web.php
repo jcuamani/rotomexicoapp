@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RolController;
 use App\Http\Middleware\LanguageManager;
 use App\Http\Controllers\SecureRouteController;
+use App\Http\Controllers\Customer\ShopAccountTypeController;
+use App\Http\Controllers\Customer\CustomerController;
+use App\Http\Controllers\Admin\ErpConnectionController;
 
 App::setLocale("es");
 session()->put('locale', "es");
@@ -59,14 +62,27 @@ Route::middleware(['auth', 'can:user.access'])->prefix('admin')->name('admin.')-
     Route::get('users/add/{id}', [UserController::class, 'CreateEdit'])->name('users.addEdit');
 });
 
+Route::middleware(['auth', 'can:erpconnection.access'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('erpconnection', ErpConnectionController::class);        
+    Route::get('erpconnection/add/{id}', [ErpConnectionController::class, 'CreateEdit'])->name('erpconnection.addEdit');          
+    Route::get('erpconnection/connection/testconnection', [ErpConnectionController::class, 'probarConexion'])->name('erpconnection.testconnection');          
+});
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::middleware(['auth', 'can:role.assign'])->prefix('admin')->name('admin.')->group(function () {
-    //Route::get('/users', [UserRoleController::class, 'index'])->name('users.index');
-    //Route::post('/users/{user}/roles', [UserRoleController::class, 'updateRoles'])->name('users.roles.update');
+Route::middleware(['auth', 'verified'])->prefix('customer')->name('customer.')->group(function () {
+    Route::prefix('cat')->name('cat.')->group(function () {
+        Route::resource('shopaccounttype', ShopAccounttypeController::class);
+        Route::get('shopaccounttype/add/{id}', [ShopAccounttypeController::class, 'CreateEdit'])->name('shopaccounttype.addEdit');        
+    });  
+    Route::prefix('customer')->name('customer.')->group(function () {
+        
+        Route::resource('customer', CustomerController::class);
+        Route::get('customer/add/{id}', [CustomerController::class, 'CreateEdit'])->name('customer.addEdit');
+    });    
 });
 
 //Route::get('/secure/{data}', [SecureRouteController::class, 'handle'])->name('secure.route');

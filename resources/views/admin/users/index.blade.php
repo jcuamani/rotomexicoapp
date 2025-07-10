@@ -91,7 +91,7 @@
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
-                    <table class="table datatable">
+                    <table class="table datatable" id="dt_User">
                         <thead class="thead-light">
                             <tr>                                
                                 <th>{{__("application_lang.app_menus_lbl_tb_col_name")}} </th>

@@ -87,7 +87,7 @@
                                     </div>
                                     
                                     <div class="form-login">
-                                        <button type="submit" class="btn btn-primary w-100">{{__('application_lang.application_login')}} tt</button>
+                                        <button type="submit" class="btn btn-primary w-100">{{__('application_lang.application_login')}}</button>
                                     </div>
                                     
                                 </div>

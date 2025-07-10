@@ -22,7 +22,7 @@
             </div>
         </div>
         <!-- /add -->
-        <form method="POST" action="{{ !empty($reg) ? secure_route('admin.users.update', ['id' => $reg->id],'PUT','\App\Http\Requests\UserRequest') : secure_route('admin.users.store',[],'POST','\App\Http\Requests\UserRequest') }}" class="needs-validation" novalidate id="form_add_role" enctype="multipart/form-data">
+        <form method="POST" action="{{ !empty($reg) ? secure_route('admin.users.update', ['id' => $reg->id],'PUT','\App\Http\Requests\UserRequest') : secure_route('admin.users.store',[],'POST','\App\Http\Requests\UserRequest') }}" class="needs-validation" novalidate id="form_add_role" enctype="multipart/form-data" autocomplete="off">
                 @csrf
                 @if(!empty($reg)) @method('PUT') @endif
                 
@@ -58,7 +58,7 @@
                                             <div class="row">
                                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
                                                     <label for="name">{{__("application_lang.app_menus_lbl_tb_col_name")}}</label>
-                                                    <input id="name" class="form-control"
+                                                    <input id="name" class="form-control" autocomplete="off"
                                                     type="text"
                                                     name="name"
                                                     value="{{ old('name', $reg->name ?? '') }}" required/>                                    
@@ -81,7 +81,7 @@
                                                 </div>
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3">
                                                     <label for="password_confirmation">{{__("application_lang.app_menus_lbl_tb_col_pass_confirm")}}</label>
-                                                    <input id="password_confirmation" class="form-control" autocomplete="off"
+                                                    <input id="password_confirmation" class="form-control" autocomplete="new-password"
                                                     type="password"
                                                     name="password_confirmation"
                                                     @if(empty($reg)) required @endif />
@@ -90,7 +90,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-3">                                    
                                                     <div class="checkbox">
                                                         <div class="custom-checkbox custom-control">
-                                                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="status" name="status" value="1" {{ old('status', $reg->email ?? 1) ? 'checked="checked"' : '' }}>
+                                                            <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input" id="status" name="status" value="1" {{ old('status', $reg->status ?? 1) ? 'checked="checked"' : '' }}>
                                                             <label for="status" class="custom-control-label">{{__("application_lang.app_menus_lbl_tb_col_enabled")}}</label>
                                                         </div>
                                                     </div>                                                               
