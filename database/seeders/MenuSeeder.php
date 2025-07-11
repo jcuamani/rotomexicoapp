@@ -47,7 +47,7 @@ class MenuSeeder extends Seeder
 
         
         // Nivel 2 - hijos de administración
-        $menus = Menu::create([
+        $permission = Menu::create([
             'title' => 'Permisos',
             'route' => 'admin.permission.index',
             'url' => 'permission',
@@ -90,6 +90,68 @@ class MenuSeeder extends Seeder
             'enabled' => 1
         ]);
 
+        $erpconnection = Menu::create([
+            'title' => 'ERP connection',
+            'route' => 'admin.erpconnection.index',
+            'url' => 'erpconnection',
+            'icon' => 'ti ti-shield-up',
+            'permission' => 'erpconnection.access',
+            'parent_id' => $admin->id,
+            'order' => 5,
+            'enabled' => 1
+        ]);
         
+        $clientes = Menu::create([
+            'title' => 'Clientes',
+            'url' => 'customer',
+            'icon' => 'ti ti-users-group',
+            'permission' => 'customer.access',
+            'order' => 3,
+            'enabled' => 1
+        ]);
+
+        $clientes_cat = Menu::create([
+            'title' => 'Catalogos',
+            'url' => 'customer_cat',
+            'icon' => 'ti ti-users-group',
+            'permission' => 'customer_cat.access',
+            'parent_id' => $clientes->id,
+            'order' => 0,
+            'enabled' => 1
+        ]);
+
+        $clientes_cat_Shop_Account_Type = Menu::create([
+            'title' => 'Shop Account Type',
+            'route' => 'customer.cat.shopaccounttype.index',
+            'url' => 'customer_cat_shopaccounttype',
+            'icon' => 'ti ti-users-group',
+            'permission' => 'customer_cat_shopaccounttype.access',
+            'parent_id' => $clientes_cat->id,
+            'order' => 0,
+            'enabled' => 1
+        ]);
+
+        $clientes_customers = Menu::create([
+            'title' => 'Customers',
+            'url' => 'customer_customer',
+            'icon' => 'ti ti-users-group',
+            'permission' => 'customer_customer.access',
+            'parent_id' => $clientes->id,
+            'order' => 1,
+            'enabled' => 1
+        ]);
+
+        $clientes_customers_customers = Menu::create([
+            'title' => 'Customers',
+            'route' => 'customer.customer.customer.index',
+            'url' => 'customer_customer_customer',
+            'icon' => 'ti ti-users-group',
+            'permission' => 'customer_customer_customer.access',
+            'parent_id' => $clientes_customers->id,
+            'order' => 0,
+            'enabled' => 1
+        ]);
+        
+
     }
 }
